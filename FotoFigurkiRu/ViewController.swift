@@ -22,7 +22,6 @@ class ViewController: UIViewController, ImagePickerDelegate {
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
         <#code#>
     }
-    
 
     // Инициализация полей ввода и кнопки отправки заказа
     @IBOutlet weak var kakObr: UITextField!
