@@ -25,6 +25,7 @@ class ViewController: UIViewController, ImagePickerDelegate {
         <#code#>
     }
     
+    // Указываем, что необходмо сделать, когда пользователь нажал кнопку выхода
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
         <#code#>
     }
