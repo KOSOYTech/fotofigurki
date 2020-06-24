@@ -20,7 +20,7 @@ class ViewController: UIViewController, ImagePickerDelegate {
         <#code#>
     }
     
-    // Указываем, что необходимо
+    // Указываем, что необходимо сделать, когда пользователь выбрал фото
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         <#code#>
     }
