@@ -15,6 +15,7 @@ import ImagePicker
 // Добавляем класс ImagePickerDelegate из библиотеки ImagePicker
 class ViewController: UIViewController, ImagePickerDelegate {
     
+    // Указываем, что необходимо сделать, когдапользователь нажмет куда-нибудь при выборе фото
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         <#code#>
     }
