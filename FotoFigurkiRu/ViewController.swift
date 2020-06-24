@@ -12,6 +12,7 @@ import UIKit
 // Подключаем библиотеку Image Picker от Hyperoslo
 import ImagePicker
 
+// Добавляем класс ImagePickerDelegate
 class ViewController: UIViewController, ImagePickerDelegate {
     
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
