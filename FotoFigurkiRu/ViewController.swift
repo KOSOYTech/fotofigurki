@@ -6,7 +6,10 @@
 //  Copyright © 2020 Maxim Kosoy. All rights reserved.
 //
 
+// Подключаем основную библиотеку UI от Apple
 import UIKit
+
+// Подключаем библиотеку Image Picker от Hyperoslo
 import ImagePicker
 
 class ViewController: UIViewController, ImagePickerDelegate {
