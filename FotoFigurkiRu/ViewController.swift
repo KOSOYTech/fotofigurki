@@ -12,27 +12,36 @@ import UIKit
 // Подключаем библиотеку Image Picker от Hyperoslo
 import ImagePicker
 
-// Добавляем класс ImagePickerDelegate из библиотеки ImagePicker
+// Добавляем класс ImagePickerDelegate из библиотеки Image Picker
 class ViewController: UIViewController, ImagePickerDelegate {
     
     // Указываем, что необходимо сделать, когда пользователь нажмет куда-нибудь при выборе фото
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        <#code#>
+        
     }
     
     // Указываем, что необходимо сделать, когда пользователь выбрал фото и нажал кнопку
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        <#code#>
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
     // Указываем, что необходмо сделать, когда пользователь нажал кнопку выхода
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        <#code#>
+          imagePicker.dismiss(animated: true, completion: nil)
     }
 
     // Инициализация полей ввода и кнопки отправки заказа
     @IBOutlet weak var kakObr: UITextField!
     @IBOutlet weak var kakSvyaz: UITextField!
+    @objc func ChoosePhotos(_ sender: Any) {
+        
+        // Инициализируем Image Picker
+        let imagePickerController = ImagePickerController()
+        imagePickerController.imageLimit = 25
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+        
+    }
     @IBAction func makeOrder(_ sender: UIButton) {
         
         // Отправка данных на сервер
