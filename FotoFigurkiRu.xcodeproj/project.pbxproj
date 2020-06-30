@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		24D600C842815A0BC6745106 /* Pods_FotoFigurkiRu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6523418A20D1EEEBA7B9BB6 /* Pods_FotoFigurkiRu.framework */; };
 		85C5E2F274D9DDE635D0D634 /* Pods_FotoFigurkiRuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39080C4A34C91CCD0BBFF75 /* Pods_FotoFigurkiRuTests.framework */; };
+		9E26EEA824A4046700154862 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E26EEA624A4046700154862 /* PhotoCell.swift */; };
+		9E26EEA924A4046700154862 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E26EEA724A4046700154862 /* PhotoCell.xib */; };
 		9E27995E24144AD60085D94D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E27995D24144AD60085D94D /* AppDelegate.swift */; };
 		9E27996024144AD60085D94D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E27995F24144AD60085D94D /* SceneDelegate.swift */; };
 		9E27996224144AD60085D94D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E27996124144AD60085D94D /* ViewController.swift */; };
@@ -33,6 +35,8 @@
 		0BCA4363F8C1349EA8C20FFB /* Pods-FotoFigurkiRuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoFigurkiRuTests.release.xcconfig"; path = "Target Support Files/Pods-FotoFigurkiRuTests/Pods-FotoFigurkiRuTests.release.xcconfig"; sourceTree = "<group>"; };
 		200C119B2D4181AD28856C37 /* Pods-FotoFigurkiRuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoFigurkiRuTests.debug.xcconfig"; path = "Target Support Files/Pods-FotoFigurkiRuTests/Pods-FotoFigurkiRuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		501D3C2E8028F6249A30D667 /* Pods-FotoFigurkiRu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FotoFigurkiRu.debug.xcconfig"; path = "Target Support Files/Pods-FotoFigurkiRu/Pods-FotoFigurkiRu.debug.xcconfig"; sourceTree = "<group>"; };
+		9E26EEA624A4046700154862 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		9E26EEA724A4046700154862 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		9E27995A24144AD60085D94D /* ФотоФигурки.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ФотоФигурки.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E27995D24144AD60085D94D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E27995F24144AD60085D94D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +82,6 @@
 				200C119B2D4181AD28856C37 /* Pods-FotoFigurkiRuTests.debug.xcconfig */,
 				0BCA4363F8C1349EA8C20FFB /* Pods-FotoFigurkiRuTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -89,6 +92,15 @@
 				C39080C4A34C91CCD0BBFF75 /* Pods_FotoFigurkiRuTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E26EEA124A4032E00154862 /* PhotoCells */ = {
+			isa = PBXGroup;
+			children = (
+				9E26EEA624A4046700154862 /* PhotoCell.swift */,
+				9E26EEA724A4046700154862 /* PhotoCell.xib */,
+			);
+			path = PhotoCells;
 			sourceTree = "<group>";
 		};
 		9E27995124144AD60085D94D = {
@@ -114,6 +126,7 @@
 		9E27995C24144AD60085D94D /* FotoFigurkiRu */ = {
 			isa = PBXGroup;
 			children = (
+				9E26EEA124A4032E00154862 /* PhotoCells */,
 				9E27995D24144AD60085D94D /* AppDelegate.swift */,
 				9E27995F24144AD60085D94D /* SceneDelegate.swift */,
 				9E27996124144AD60085D94D /* ViewController.swift */,
@@ -219,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E26EEA924A4046700154862 /* PhotoCell.xib in Resources */,
 				9E27996D24144AE00085D94D /* LaunchScreen.storyboard in Resources */,
 				9E27996A24144AE00085D94D /* Assets.xcassets in Resources */,
 				9E27996524144AD60085D94D /* Main.storyboard in Resources */,
@@ -304,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E27996224144AD60085D94D /* ViewController.swift in Sources */,
+				9E26EEA824A4046700154862 /* PhotoCell.swift in Sources */,
 				9E27995E24144AD60085D94D /* AppDelegate.swift in Sources */,
 				9E27996824144AD60085D94D /* FotoFigurkiRu.xcdatamodeld in Sources */,
 				9E27996024144AD60085D94D /* SceneDelegate.swift in Sources */,

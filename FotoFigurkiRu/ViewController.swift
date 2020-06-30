@@ -15,24 +15,14 @@ import ImagePicker
 // Добавляем класс ImagePickerDelegate из библиотеки Image Picker
 class ViewController: UIViewController, ImagePickerDelegate {
     
-    // Указываем, что необходимо сделать, когда пользователь нажмет куда-нибудь при выборе фото
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        
-    }
-    
-    // Указываем, что необходимо сделать, когда пользователь выбрал фото и нажал кнопку
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        imagePicker.dismiss(animated: true, completion: nil)
-    }
-    
-    // Указываем, что необходмо сделать, когда пользователь нажал кнопку выхода
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-          imagePicker.dismiss(animated: true, completion: nil)
-    }
+    var imagesFromLib = [UIImage]()
+    var images = [UIImage]()
 
     // Инициализация полей ввода и кнопки отправки заказа
     @IBOutlet weak var kakObr: UITextField!
     @IBOutlet weak var kakSvyaz: UITextField!
+    @IBOutlet weak var collectionPhotoView: UICollectionView!
+    
     @objc func ChoosePhotos(_ sender: Any) {
         
         // Инициализируем Image Picker
@@ -76,9 +66,84 @@ class ViewController: UIViewController, ImagePickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("Начата прогрузка")
         // Do any additional setup after loading the view.
- 
+        
+   
+        
+
+        
+        print("Прогружено")
+        
+        
+
     }
+    
+    // Указываем, что необходимо сделать, когда пользователь нажмет куда-нибудь при выборе фото
+     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+         print("Нажата неизвестная кнопка!")
+     }
+     
+     // Указываем, что необходимо сделать, когда пользователь выбрал фото и нажал кнопку
+     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+         imagePicker.dismiss(animated: true, completion: nil)
+            
+        let layout = UICollectionViewFlowLayout()
+        collectionPhotoView.collectionViewLayout = layout
+        
+        self.collectionPhotoView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
+        self.collectionPhotoView.dataSource = self
+        self.collectionPhotoView.delegate = self
+        imagesFromLib = images
+         print("Нажата кнопка готово!")
+         print(images.count)
+        print("Передано в другой массив!")
+        print(imagesFromLib.count)
+
+ 
+
+     }
+     
+     // Указываем, что необходмо сделать, когда пользователь нажал кнопку выхода
+     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+           imagePicker.dismiss(animated: true, completion: nil)
+     }
+
+}
+
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("Прописано, сколько всего ячеек:")
+        print(imagesFromLib.count)
+        return imagesFromLib.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        print("Запущена функция обработки коллекции")
+        let cell = collectionPhotoView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        let photo = imagesFromLib[indexPath.item]
+        cell.setupCell(image: photo)
+        print("Закончена функция обработки коллекции")
+        return cell
+    }
+    
+
+    
 
 
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print("Запущена функция по внешнему виду")
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        print("Запущена вторая функция по внешнему виду")
+        return 0
+    }
+    
 }
